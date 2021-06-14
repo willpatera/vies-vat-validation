@@ -32,9 +32,10 @@ response = requests.post(VIES_URL,
 
 # parse the xml content to python OrderedDict see example_response.py for reference
 response_dict = xmltodict.parse(response.content)
-print(response_dict)
+
 # if we are only interested in the validity, this will be true | false
 # response_dict['soap:Envelope']['soap:Body']['checkVatResponse']['valid']
 
+# let's show the status and content of the request
 print("response code: {}\nresponse_content: {}".format(response.status_code,
   response_dict['soap:Envelope']['soap:Body']['checkVatResponse']))
